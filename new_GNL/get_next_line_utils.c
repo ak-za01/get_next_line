@@ -1,19 +1,38 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: anktiri <anktiri@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/24 22:44:32 by anktiri           #+#    #+#             */
+/*   Updated: 2024/11/24 22:44:32 by anktiri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *s, char c)
+void	*ft_free(char **buffer)
+{
+	free(*buffer);
+	*buffer = NULL;
+	return (NULL);
+}
+
+int	ft_strchr(const char *s, char c)
 {
 	int	a;
 
 	a = 0;
 	if (!s)
-		return (NULL);
+		return (0);
 	while (s[a])
 	{
 		if (s[a] == c)
-			return ((char *)&s[a]);
+			return (1);
 		a++;
 	}
-	return (NULL);
+	return (0);
 }
 
 size_t	ft_strlen(const char *s)
@@ -26,13 +45,6 @@ size_t	ft_strlen(const char *s)
 	while (s[i])
 		i++;
 	return (i);
-}
-
-void	*ft_free(char *buffer)
-{
-	free(buffer);
-	buffer = NULL;
-	return (NULL);
 }
 
 char	*ft_calloc(size_t size)
@@ -51,21 +63,22 @@ char	*ft_calloc(size_t size)
 
 char	*join(char *s1, char *s2)
 {
-	char	*str;
+	char	*buffer;
 	int		a;
 	int		b;
 
 	a = 0;
 	b = 0;
 	if (!s1 || !s2)
-		return (ft_free(s1));
-	str = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!str)
-		return (ft_free(s1));
+		return (ft_free(&s1));
+	buffer = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!buffer)
+		return (ft_free(&s1));
 	while (s1[a])
-		str[b++] = s1[a++];
+		buffer[b++] = s1[a++];
 	a = 0;
 	while (s2[a])
-		str[b++] = s2[a];
-	return (ft_free(s1), str);
+		buffer[b++] = s2[a++];
+	ft_free(&s1);
+	return (buffer);
 }
