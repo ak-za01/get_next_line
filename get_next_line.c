@@ -33,8 +33,7 @@ char	*read_line(int fd, char *buffer)
 		if (!buffer)
 			return (ft_free(&line));
 	}
-	ft_free(&line);
-	return (buffer);
+	return (ft_free(&line), buffer);
 }
 
 char	*new_line(char *buffer)

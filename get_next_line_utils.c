@@ -79,6 +79,5 @@ char	*join(char *s1, char *s2)
 	a = 0;
 	while (s2[a])
 		buffer[b++] = s2[a++];
-	ft_free(&s1);
-	return (buffer);
+	return (ft_free(&s1), buffer);
 }

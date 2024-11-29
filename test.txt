@@ -1,0 +1,10 @@
+total 88
+-rwxr-xr-x  1 anktiri  candidates  13292 nov 27 18:41 a.out
+-rw-r--r--  1 anktiri  candidates   2589 nov 26 09:45 get_next_line.c
+-rw-r--r--  1 anktiri  candidates   1269 nov 26 09:44 get_next_line.h
+-rw-r--r--  1 root123  candidates   2544 nov 26 13:14 get_next_line_bonus.c
+-rw-r--r--  1 anktiri  candidates   1275 nov 26 13:13 get_next_line_bonus.h
+-rw-r--r--  1 anktiri  candidates   1853 nov 26 10:37 get_next_line_utils.c
+-rw-r--r--  1 anktiri  candidates   1776 nov 26 09:44 get_next_line_utils_bonus.c
+-rw-r--r--  1 anktiri  candidates    853 nov 27 18:41 main.c
+-rw-r--r--  1 anktiri  candidates      0 nov 27 18:41 test.txt
